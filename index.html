@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fly Unity x Tourmaker 제휴 제안서</title>
+    
+    <!-- Google Analytics 4 (GA4) -->
+    <!-- [중요] 아래 'G-XXXXXXXXXX' 부분을 실제 측정 ID로 변경하세요 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        // 초기 페이지뷰 전송
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- PageFlip Library -->
@@ -146,7 +159,7 @@
 
                         <div class="mt-8 border-t pt-6 border-slate-200">
                             <div class="flex items-center space-x-4">
-                                <!-- 투어메이커 로고 (변경됨) -->
+                                <!-- 투어메이커 로고 -->
                                 <img src="https://blogger.googleusercontent.com/img/a/AVvXsEitI-Z-hD82keOJ1AqHw-VTZjpw2U-O5UjtV9h3zblyG0wjsVfBWe9X9o0Q_Spctrt7krkd9qXO0xKTmGJLw4gyMZrRqpshKMFttnyx6OcC8-IGz3XLUZpGQOnRqVdol8jz5HuoDLqsEifnVRhcjUJHm13Sz8JrX9aPswMNUwZPvGtJEnQjhc2PiXlo-B8" alt="Tourmaker" class="partner-logo">
                                 <span class="text-slate-300">|</span>
                                 <!-- 플라이유니티 로고 -->
@@ -305,7 +318,7 @@
                     <div class="mt-8 flex justify-center">
                         <a href="https://tourmaker.kr" target="_blank" class="flex items-center space-x-2 bg-slate-800 hover:bg-slate-700 transition-colors py-1.5 px-4 rounded-full border border-slate-600">
                            <span class="text-slate-400 text-[10px]">Powered by</span>
-                           <!-- 푸터 로고 (변경됨) -->
+                           <!-- 푸터 로고 -->
                            <img src="https://blogger.googleusercontent.com/img/a/AVvXsEitI-Z-hD82keOJ1AqHw-VTZjpw2U-O5UjtV9h3zblyG0wjsVfBWe9X9o0Q_Spctrt7krkd9qXO0xKTmGJLw4gyMZrRqpshKMFttnyx6OcC8-IGz3XLUZpGQOnRqVdol8jz5HuoDLqsEifnVRhcjUJHm13Sz8JrX9aPswMNUwZPvGtJEnQjhc2PiXlo-B8" alt="Tourmaker" class="h-6 opacity-90">
                        </a>
                    </div>
@@ -317,7 +330,7 @@
             <div class="page bg-white">
                 <div class="page-content flex items-center justify-center">
                     <div class="text-center opacity-30">
-                        <!-- 뒷표지 로고 (변경됨) -->
+                        <!-- 뒷표지 로고 -->
                         <img src="https://blogger.googleusercontent.com/img/a/AVvXsEitI-Z-hD82keOJ1AqHw-VTZjpw2U-O5UjtV9h3zblyG0wjsVfBWe9X9o0Q_Spctrt7krkd9qXO0xKTmGJLw4gyMZrRqpshKMFttnyx6OcC8-IGz3XLUZpGQOnRqVdol8jz5HuoDLqsEifnVRhcjUJHm13Sz8JrX9aPswMNUwZPvGtJEnQjhc2PiXlo-B8" alt="Logo" class="h-10 mx-auto mb-2 grayscale">
                         <p class="text-xs font-bold text-slate-400">TOURMAKER x Fly Unity</p>
                     </div>
@@ -344,6 +357,28 @@
 
             // 페이지 로드 (HTML 내의 .page 클래스 요소들을 로드)
             pageFlip.loadFromHTML(document.querySelectorAll('.page'));
+
+            // 페이지 넘김 이벤트 추적 (GA4)
+            pageFlip.on('flip', (e) => {
+                // e.data는 0부터 시작하는 페이지 인덱스
+                const pageNum = e.data + 1;
+                console.log(`Page flipped to: ${pageNum}`); // 디버깅용 로그
+
+                if (typeof gtag === 'function') {
+                    // 가상 페이지뷰 전송
+                    gtag('event', 'page_view', {
+                        page_title: `Proposal Page ${pageNum}`,
+                        page_location: location.href + `#page${pageNum}`
+                    });
+
+                    // 커스텀 이벤트 전송 (페이지 넘김 행동 자체 추적)
+                    gtag('event', 'flip_page', {
+                        event_category: 'engagement',
+                        event_label: `Page ${pageNum}`,
+                        value: pageNum
+                    });
+                }
+            });
 
             // 버튼 이벤트 연결
             document.getElementById('prevBtn').addEventListener('click', () => {
