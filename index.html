@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fly Unity x Tourmaker 제휴 제안서</title>
     
+    <!-- 카카오톡/SNS 공유 최적화 (Open Graph) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Fly Unity x Tourmaker 제휴 제안서">
+    <meta property="og:description" content="디지털 직판 파이프라인 구축 및 가속화 제안 (항공 발권 볼륨 증대 전략)">
+    <!-- 썸네일 이미지: 요청하신 투어메이커 심볼 로고 -->
+    <meta property="og:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEitI-Z-hD82keOJ1AqHw-VTZjpw2U-O5UjtV9h3zblyG0wjsVfBWe9X9o0Q_Spctrt7krkd9qXO0xKTmGJLw4gyMZrRqpshKMFttnyx6OcC8-IGz3XLUZpGQOnRqVdol8jz5HuoDLqsEifnVRhcjUJHm13Sz8JrX9aPswMNUwZPvGtJEnQjhc2PiXlo-B8">
+    
     <!-- Google Analytics 4 (GA4) -->
     <!-- [중요] 'G-XXXXXXXXXX'를 실제 ID로 변경하세요 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -25,7 +32,7 @@
         
         body {
             font-family: 'Noto Sans KR', sans-serif;
-            background-color: #2d3436; /* 고급스러운 다크 그레이 배경 */
+            background-color: #2d3436;
             margin: 0;
             padding: 0;
             height: 100vh;
@@ -33,10 +40,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden; /* 스크롤 방지 */
+            overflow: hidden;
         }
 
-        /* 컨트롤러 (화살표) */
         .controls {
             position: absolute;
             bottom: 20px;
@@ -67,27 +73,22 @@
             transform: scale(1.1);
         }
 
-        /* 책 스타일 */
         .stf__wrapper {
-            /* 라이브러리 기본 래퍼 스타일 보정 */
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
 
         .page {
             background-color: white;
-            border: 1px solid #dfe6e9; /* 얇은 테두리 */
+            border: 1px solid #dfe6e9;
             overflow: hidden;
-            /* 종이 질감 효과 */
             background-image: linear-gradient(to right, rgba(255,255,255,0.95), rgba(255,255,255,1));
         }
 
-        /* 짝수 페이지 (왼쪽) 책등 그림자 */
         .page:nth-child(even) {
             box-shadow: inset -10px 0 20px -10px rgba(0,0,0,0.1);
             border-right: none;
         }
 
-        /* 홀수 페이지 (오른쪽) 책등 그림자 */
         .page:nth-child(odd) {
             box-shadow: inset 10px 0 20px -10px rgba(0,0,0,0.1);
             border-left: none;
@@ -98,12 +99,11 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            padding: 30px 40px; /* 여백 넉넉하게 */
+            padding: 30px 40px;
             box-sizing: border-box;
             position: relative;
         }
         
-        /* 모바일 대응 */
         @media (max-width: 768px) {
             .page-content {
                 padding: 20px 20px;
@@ -125,12 +125,11 @@
         }
 
         .logo-img {
-            height: 30px;
+            height: 40px; /* 로고 크기를 키워서 더 잘 보이게 조정 */
             width: auto;
             object-fit: contain;
         }
 
-        /* 페이지 번호 */
         .page-footer {
             position: absolute;
             bottom: 20px;
@@ -144,29 +143,27 @@
 </head>
 <body>
 
-    <!-- 네비게이션 버튼 -->
     <div class="controls">
         <button class="btn-nav" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
         <button class="btn-nav" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
     </div>
 
-    <!-- Book Element -->
     <div id="book">
         
-        <!-- COVER PAGE -->
+        <!-- COVER PAGE: 폰트 크기 축소 및 로고 강조 -->
         <div class="page">
             <div class="page-content bg-white relative">
-                <!-- 장식 요소 -->
                 <div class="absolute top-0 right-0 w-2/3 h-full bg-blue-50/50" style="clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);"></div>
                 
                 <div class="flex-1 flex flex-col justify-center z-10">
                     <div class="mb-2">
                         <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded-full mb-4">Strategic Alliance</span>
-                        <h1 class="text-4xl font-black text-slate-800 leading-tight mb-4">
+                        <!-- 글자 크기: text-4xl -> text-2xl로 축소 -->
+                        <h1 class="text-2xl font-black text-slate-800 leading-tight mb-4">
                             디지털 직판 파이프라인<br>
                             <span class="gradient-text">구축 및 가속화 제안</span>
                         </h1>
-                        <p class="text-base text-slate-500 font-medium leading-relaxed">
+                        <p class="text-sm text-slate-500 font-medium leading-relaxed">
                             항공 발권 볼륨 증대와 수익성 강화를 위한<br>
                             Fly Unity × TOURMAKER 협력 모델
                         </p>
@@ -174,11 +171,10 @@
 
                     <div class="mt-12 pt-8 border-t border-slate-200">
                         <div class="flex items-center space-x-4">
-                            <!-- 투어메이커 로고 -->
+                            <!-- 로고: CSS에서 높이 확대 적용됨 -->
                             <img src="https://blogger.googleusercontent.com/img/a/AVvXsEitI-Z-hD82keOJ1AqHw-VTZjpw2U-O5UjtV9h3zblyG0wjsVfBWe9X9o0Q_Spctrt7krkd9qXO0xKTmGJLw4gyMZrRqpshKMFttnyx6OcC8-IGz3XLUZpGQOnRqVdol8jz5HuoDLqsEifnVRhcjUJHm13Sz8JrX9aPswMNUwZPvGtJEnQjhc2PiXlo-B8" alt="Tourmaker" class="logo-img">
                             <span class="text-slate-300">|</span>
-                            <!-- 플라이유니티 로고 -->
-                            <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhDlxjbueW0SvPAcv2A63S2A29MmX556P9-k4UAkVbMJ1xFNP_Hh2xcKk_G1JdNRdYoNe23sxVS7Xg7KX-AVvQ9lMg2SlseZ-7hIAP6xnnXEPFIQ5-Vf6udjQ1nj6QvTi-IDe9W-cxvlQfVoZ7lxXvWw5KNDEhdic3Cewf7qMdAzH8u46QTKLmPLRseN5M=s16000" alt="Fly Unity" class="logo-img" style="height: 40px;">
+                            <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhDlxjbueW0SvPAcv2A63S2A29MmX556P9-k4UAkVbMJ1xFNP_Hh2xcKk_G1JdNRdYoNe23sxVS7Xg7KX-AVvQ9lMg2SlseZ-7hIAP6xnnXEPFIQ5-Vf6udjQ1nj6QvTi-IDe9W-cxvlQfVoZ7lxXvWw5KNDEhdic3Cewf7qMdAzH8u46QTKLmPLRseN5M=s16000" alt="Fly Unity" class="logo-img" style="height: 50px;">
                         </div>
                         <p class="mt-4 text-xs text-slate-400">2026. 02.</p>
                     </div>
@@ -191,27 +187,27 @@
         <div class="page">
             <div class="page-content bg-pattern">
                 <div class="flex justify-between items-end mb-10 border-b border-slate-200 pb-3">
-                    <h2 class="text-2xl font-bold text-slate-800">Why Now?</h2>
+                    <h2 class="text-xl font-bold text-slate-800">Why Now?</h2>
                     <span class="text-slate-400 text-xs">01 / Background</span>
                 </div>
                 
                 <div class="space-y-8 flex-1">
                     <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-blue-600">
-                        <h3 class="text-lg font-bold text-slate-800 mb-2">📍 항공 발권 대리점 승격 이슈</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">
+                        <h3 class="text-base font-bold text-slate-800 mb-2">📍 항공 발권 대리점 승격 이슈</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
                             Fly Unity의 대리점 승격으로 안정적인 <strong>발권 볼륨(Volume) 확보</strong>가 필수적입니다. 기존 B2B 채널 외에 새로운 파이프라인이 필요합니다.
                         </p>
                     </div>
 
                     <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-cyan-500">
-                        <h3 class="text-lg font-bold text-slate-800 mb-2">📍 직접 진출(B2C)의 리스크</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">
+                        <h3 class="text-base font-bold text-slate-800 mb-2">📍 직접 진출(B2C)의 리스크</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
                             수익을 위한 직판은 필수이나, CS 인력 채용과 시스템 구축은 고비용/고위험입니다. 리스크 없는 확장 전략이 필요합니다.
                         </p>
                     </div>
 
                     <div class="bg-blue-50 p-6 rounded-xl text-center mt-auto">
-                        <p class="text-blue-900 font-bold text-base">
+                        <p class="text-blue-900 font-bold text-sm">
                             "별도의 투자 없이, 즉각적으로 판매할<br>디지털 창구가 필요합니다."
                         </p>
                     </div>
@@ -224,19 +220,19 @@
         <div class="page">
              <div class="page-content">
                 <div class="flex justify-between items-end mb-8 border-b border-slate-200 pb-3">
-                    <h2 class="text-2xl font-bold text-slate-800">Strategy</h2>
+                    <h2 class="text-xl font-bold text-slate-800">Strategy</h2>
                     <span class="text-slate-400 text-xs">02 / Solution</span>
                 </div>
 
-                <h3 class="text-xl font-bold text-center mb-8 text-slate-700">
+                <h3 class="text-lg font-bold text-center mb-8 text-slate-700">
                     인프라 + 기술력 = <span class="text-blue-600">리스크 없는 직판</span>
                 </h3>
 
                 <div class="grid grid-cols-1 gap-6 mb-8">
                     <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 relative overflow-hidden">
                         <div class="absolute right-0 top-0 w-16 h-16 bg-slate-200 rounded-bl-full opacity-50"></div>
-                        <h4 class="text-lg font-bold text-slate-800 mb-2"><i class="fas fa-plane-departure mr-2"></i>Fly Unity</h4>
-                        <ul class="text-sm text-slate-600 ml-4 list-disc space-y-1">
+                        <h4 class="text-base font-bold text-slate-800 mb-2"><i class="fas fa-plane-departure mr-2"></i>Fly Unity</h4>
+                        <ul class="text-xs text-slate-600 ml-4 list-disc space-y-1">
                             <li>중국/대만/동남아/일본 행사 및 항공발권</li>
                             <li class="font-bold text-slate-900">상품 공급 및 운영 총괄</li>
                             <li class="text-blue-700 font-bold">온라인 고객 상담 공동 대응</li>
@@ -245,8 +241,8 @@
 
                     <div class="bg-blue-50 p-5 rounded-xl border border-blue-100 relative overflow-hidden">
                          <div class="absolute right-0 top-0 w-16 h-16 bg-blue-200 rounded-bl-full opacity-50"></div>
-                        <h4 class="text-lg font-bold text-blue-900 mb-2"><i class="fas fa-mobile-alt mr-2"></i>Tourmaker</h4>
-                        <ul class="text-sm text-blue-800 ml-4 list-disc space-y-1">
+                        <h4 class="text-base font-bold text-blue-900 mb-2"><i class="fas fa-mobile-alt mr-2"></i>Tourmaker</h4>
+                        <ul class="text-xs text-blue-800 ml-4 list-disc space-y-1">
                             <li>스마트 가이드북 기술 제공</li>
                             <li>판매 플랫폼 및 자동 견적 시스템 구축</li>
                             <li class="font-bold">초기 세팅 및 기술 지원 주도</li>
@@ -255,8 +251,8 @@
                 </div>
 
                 <div class="bg-white border border-dashed border-slate-300 rounded-xl p-4 text-center mt-auto">
-                    <div class="text-xs text-slate-500 font-bold mb-3">협업 프로세스</div>
-                    <div class="flex justify-between items-center text-xs">
+                    <div class="text-[10px] text-slate-500 font-bold mb-3">협업 프로세스</div>
+                    <div class="flex justify-between items-center text-[10px]">
                         <div>고객유입</div>
                         <i class="fas fa-chevron-right text-slate-300"></i>
                         <div class="bg-blue-100 px-3 py-2 rounded-lg text-blue-900 font-bold">공동 대응<br>(시스템)</div>
@@ -272,19 +268,18 @@
          <div class="page">
             <div class="page-content bg-pattern">
                <div class="flex justify-between items-end mb-8 border-b border-slate-200 pb-3">
-                   <h2 class="text-2xl font-bold text-slate-800">Tech Edge</h2>
+                   <h2 class="text-xl font-bold text-slate-800">Tech Edge</h2>
                    <span class="text-slate-400 text-xs">03 / Competitiveness</span>
                </div>
 
                <div class="space-y-8">
-                   <!-- Item 1 -->
                    <div class="flex space-x-6">
                        <div class="w-24 h-36 bg-slate-200 rounded-lg shadow-md flex-shrink-0 overflow-hidden">
                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=200" class="object-cover w-full h-full opacity-80" alt="Guidebook">
                        </div>
                        <div class="flex-1">
-                           <h3 class="text-lg font-bold text-blue-700 mb-2">스마트 가이드북</h3>
-                           <p class="text-sm text-slate-600 leading-relaxed">
+                           <h3 class="text-base font-bold text-blue-700 mb-2">스마트 가이드북</h3>
+                           <p class="text-xs text-slate-600 leading-relaxed">
                                URL 하나로 제공되는 모바일 일정표입니다. 앱 설치 없이 고객은 현지 정보 확인, 옵션 결제, 가이드 미팅 정보를 확인할 수 있습니다.
                            </p>
                        </div>
@@ -292,11 +287,10 @@
                    
                    <div class="w-full h-px bg-slate-200"></div>
 
-                   <!-- Item 2 -->
                    <div class="flex space-x-6">
                         <div class="flex-1 text-right">
-                            <h3 class="text-lg font-bold text-blue-700 mb-2">자동 견적 & 모객 시스템</h3>
-                            <p class="text-sm text-slate-600 leading-relaxed">
+                            <h3 class="text-base font-bold text-blue-700 mb-2">자동 견적 & 모객 시스템</h3>
+                            <p class="text-xs text-slate-600 leading-relaxed">
                                 온라인 견적 요청을 데이터화하여 <strong>양사 담당자가 시스템으로 즉시 확인하고 공동 대응</strong>할 수 있는 환경을 제공합니다.
                             </p>
                         </div>
@@ -313,7 +307,7 @@
        <div class="page">
             <div class="page-content bg-slate-900 text-white">
                 <div class="flex justify-between items-end mb-10 border-b border-slate-700 pb-3">
-                    <h2 class="text-2xl font-bold">Outcome</h2>
+                    <h2 class="text-xl font-bold">Outcome</h2>
                     <span class="text-slate-500 text-xs">04 / Vision</span>
                 </div>
 
@@ -321,7 +315,7 @@
                     <div class="flex items-center justify-between bg-slate-800 p-5 rounded-xl border border-slate-700">
                         <div class="text-left">
                             <div class="text-xs text-slate-400 mb-1">Volume</div>
-                            <div class="text-lg font-bold text-blue-400">항공 발권량 증대</div>
+                            <div class="text-base font-bold text-blue-400">항공 발권량 증대</div>
                         </div>
                         <i class="fas fa-chart-line text-2xl text-slate-600"></i>
                     </div>
@@ -329,7 +323,7 @@
                     <div class="flex items-center justify-between bg-slate-800 p-5 rounded-xl border border-slate-700">
                         <div class="text-left">
                             <div class="text-xs text-slate-400 mb-1">Profit</div>
-                            <div class="text-lg font-bold text-green-400">직판 마진 확보</div>
+                            <div class="text-base font-bold text-green-400">직판 마진 확보</div>
                         </div>
                         <i class="fas fa-coins text-2xl text-slate-600"></i>
                     </div>
@@ -337,14 +331,14 @@
                     <div class="flex items-center justify-between bg-slate-800 p-5 rounded-xl border border-slate-700">
                         <div class="text-left">
                             <div class="text-xs text-slate-400 mb-1">Tech</div>
-                            <div class="text-lg font-bold text-purple-400">디지털 역량 강화</div>
+                            <div class="text-base font-bold text-purple-400">디지털 역량 강화</div>
                         </div>
                         <i class="fas fa-microchip text-2xl text-slate-600"></i>
                     </div>
                 </div>
 
                 <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 mb-auto text-center">
-                    <p class="text-slate-300 text-sm leading-relaxed">
+                    <p class="text-slate-300 text-xs leading-relaxed">
                         Fly Unity는 <strong>가장 잘하는 것</strong>에,<br>
                         Tourmaker도 <strong>가장 잘하는 것</strong>에 집중하여<br>
                         **양사가 함께** 실질적인 매출을 만듭니다.
@@ -354,7 +348,6 @@
                 <div class="mt-auto flex justify-center pb-8">
                     <a href="https://tourmaker.kr" target="_blank" class="flex items-center space-x-2 bg-slate-800 hover:bg-slate-700 transition-colors py-2 px-5 rounded-full border border-slate-600">
                        <span class="text-slate-400 text-xs">Powered by</span>
-                       <!-- 요청하신 새 로고 -->
                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEitI-Z-hD82keOJ1AqHw-VTZjpw2U-O5UjtV9h3zblyG0wjsVfBWe9X9o0Q_Spctrt7krkd9qXO0xKTmGJLw4gyMZrRqpshKMFttnyx6OcC8-IGz3XLUZpGQOnRqVdol8jz5HuoDLqsEifnVRhcjUJHm13Sz8JrX9aPswMNUwZPvGtJEnQjhc2PiXlo-B8" alt="Tourmaker" class="h-5 opacity-90">
                    </a>
                </div>
@@ -366,7 +359,6 @@
         <div class="page">
             <div class="page-content flex items-center justify-center bg-white">
                 <div class="text-center opacity-40">
-                    <!-- 요청하신 새 로고 (흑백처리) -->
                     <img src="https://blogger.googleusercontent.com/img/a/AVvXsEitI-Z-hD82keOJ1AqHw-VTZjpw2U-O5UjtV9h3zblyG0wjsVfBWe9X9o0Q_Spctrt7krkd9qXO0xKTmGJLw4gyMZrRqpshKMFttnyx6OcC8-IGz3XLUZpGQOnRqVdol8jz5HuoDLqsEifnVRhcjUJHm13Sz8JrX9aPswMNUwZPvGtJEnQjhc2PiXlo-B8" alt="Logo" class="h-12 mx-auto mb-4 grayscale">
                     <p class="text-sm font-bold text-slate-500 tracking-widest">TOURMAKER x Fly Unity</p>
                     <p class="text-xs text-slate-400 mt-2">Confidential Proposal</p>
@@ -380,42 +372,27 @@
         document.addEventListener('DOMContentLoaded', function() {
             const bookElement = document.getElementById('book');
             
-            // 반응형 크기 계산 함수 (화면에 꽉 차게)
             function updateBookDimensions() {
                 let screenWidth = window.innerWidth;
                 let screenHeight = window.innerHeight;
 
-                // Safety check for iframe/hidden environments
                 if (!screenWidth || screenWidth === 0) screenWidth = 1024;
                 if (!screenHeight || screenHeight === 0) screenHeight = 768;
                 
-                // 여백을 둔 최대 높이 (95% to fill more screen as requested)
                 const maxHeight = screenHeight * 0.95; 
-                
-                // A4 비율 (1 : 1.414)
-                // Width of a SINGLE page
                 let pageHeight = maxHeight;
                 let pageWidth = pageHeight / 1.414; 
                 
-                // 모바일/PC 분기 처리
                 if (screenWidth < 768) {
-                    // 모바일: 화면 너비 기준 (단면)
-                    // Width is mostly screen width
                     pageWidth = screenWidth * 0.95;
                     pageHeight = pageWidth * 1.414;
                     
-                    // If calculated height exceeds screen height, constrain by height instead
                     if (pageHeight > screenHeight * 0.9) {
                          pageHeight = screenHeight * 0.9;
                          pageWidth = pageHeight / 1.414;
                     }
                 } else {
-                    // PC: 높이 기준 (양면 펼침을 고려해야 함)
-                    // St.PageFlip 'width' is the width of a SINGLE page.
-                    // Total width = pageWidth * 2. 
-                    // Check if total width fits in screen
                     if ((pageWidth * 2) > (screenWidth * 0.95)) {
-                        // If too wide, constrain by width
                         pageWidth = (screenWidth * 0.95) / 2;
                         pageHeight = pageWidth * 1.414;
                     }
@@ -432,7 +409,7 @@
             const pageFlip = new St.PageFlip(bookElement, {
                 width: dims.width,
                 height: dims.height,
-                size: 'fixed', // 크기 고정 (JS로 계산했으므로)
+                size: 'fixed',
                 minWidth: 300,
                 maxWidth: 1000,
                 minHeight: 400,
@@ -441,20 +418,15 @@
                 showCover: true,
                 mobileScrollSupport: false,
                 useMouseEvents: true,
-                flippingTime: 1000 // 넘김 시간을 1초로 늘려 더 부드럽게
+                flippingTime: 1000
             });
 
-            // 페이지 로드
             pageFlip.loadFromHTML(document.querySelectorAll('.page'));
 
-            // 리사이즈 이벤트 처리 (창 크기 변경 시 책 크기 재조정)
             window.addEventListener('resize', () => {
-                // 페이지 새로고침을 통해 크기 재계산 (라이브러리 특성상 리로드가 안정적)
-                // location.reload(); 
-                // UX를 위해 리로드는 주석처리하고, 실제 배포시에는 반응형 CSS와 함께 테스트 권장
+                // location.reload();
             });
 
-            // GA4 이벤트 추적
             pageFlip.on('flip', (e) => {
                 const pageNum = e.data + 1;
                 if (typeof gtag === 'function') {
@@ -470,11 +442,9 @@
                 }
             });
 
-            // 버튼 연결
             document.getElementById('prevBtn').addEventListener('click', () => pageFlip.flipPrev());
             document.getElementById('nextBtn').addEventListener('click', () => pageFlip.flipNext());
             
-            // 키보드 연결
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'ArrowLeft') pageFlip.flipPrev();
                 if (e.key === 'ArrowRight') pageFlip.flipNext();
