@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fly Unity x Tourmaker 제휴 제안서</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f0f2f5;
+            overflow-x: hidden;
+        }
+        
+        .slide-page {
+            width: 100%;
+            max-width: 800px; /* A4 비율 느낌 */
+            aspect-ratio: 1 / 1.414;
+            background: white;
+            margin: 2rem auto;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 인쇄 시 페이지 나누기 */
+        @media print {
+            body { background: white; }
+            .slide-page {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+            }
+        }
+
+        /* 모바일 대응 */
+        @media (max-width: 768px) {
+            .slide-page {
+                aspect-ratio: auto;
+                min-height: 100vh;
+                margin: 0;
+                border-radius: 0;
+            }
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bg-pattern {
+            background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* 로고 이미지 스타일 */
+        .partner-logo {
+            height: 2.5rem; /* h-10과 유사 */
+            width: auto;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Slide 1: 표지 -->
+    <div class="slide-page bg-white relative">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-blue-50/50 clip-path-slant"></div>
+        
+        <div class="flex-1 flex flex-col justify-center px-12 z-10">
+            <div class="mb-8">
+                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-sm font-bold rounded-full mb-4">Strategic Alliance Proposal</span>
+                <h1 class="text-5xl font-black text-slate-800 leading-tight mb-4">
+                    디지털 직판 파이프라인<br>
+                    <span class="gradient-text">구축 및 가속화 제안</span>
+                </h1>
+                <p class="text-xl text-slate-500 font-medium">
+                    항공 발권 볼륨 증대와 수익성 강화를 위한<br>
+                    Fly Unity × TOURMAKER 협력 모델
+                </p>
+            </div>
+
+            <div class="mt-12 border-t pt-8 border-slate-200">
+                <div class="flex items-center space-x-6">
+                    <!-- 투어메이커 로고 -->
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHfgIX70O5k6Anuo0UgALIdaG9jSga9auHu3uyz0uEirylGPAJnjN_qQbvEGMUvPqUQf_g9FMNUHRxlDcUBf4vZ3Mpy4TnA9WxbmzWYK11gt2zuy_Irl4wctNFjcjLyPo0GPXV792o_J7L9guRMuDfeC1gy7USwywjYbECZgzcsHybuGRRAXAnO1eNmP8/s320/logo.png" alt="Tourmaker Logo" class="partner-logo">
+                    <span class="text-slate-300 text-2xl">|</span>
+                    <!-- 플라이유니티 로고 (반영됨) -->
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhDlxjbueW0SvPAcv2A63S2A29MmX556P9-k4UAkVbMJ1xFNP_Hh2xcKk_G1JdNRdYoNe23sxVS7Xg7KX-AVvQ9lMg2SlseZ-7hIAP6xnnXEPFIQ5-Vf6udjQ1nj6QvTi-IDe9W-cxvlQfVoZ7lxXvWw5KNDEhdic3Cewf7qMdAzH8u46QTKLmPLRseN5M=s16000" alt="Fly Unity Logo" class="partner-logo" style="height: 3.5rem;"> <!-- 약간 더 키움 -->
+                </div>
+                <p class="mt-6 text-sm text-slate-400">2026. 02. 제안</p>
+            </div>
+        </div>
+        
+        <!-- 하단 장식 -->
+        <div class="h-4 bg-blue-900 w-full absolute bottom-0"></div>
+    </div>
+
+    <!-- Slide 2: 배경 및 목적 (변경 없음) -->
+    <div class="slide-page bg-pattern">
+        <div class="p-12 h-full flex flex-col">
+            <div class="flex justify-between items-end mb-12 border-b-2 border-slate-100 pb-4">
+                <h2 class="text-3xl font-bold text-slate-800">Why Now?</h2>
+                <span class="text-slate-400 text-sm">01 / Background</span>
+            </div>
+
+            <div class="flex-1 space-y-8">
+                <div class="bg-white p-8 rounded-xl shadow-sm border-l-4 border-blue-600">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">📍 항공 발권 대리점 승격에 따른 과제</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        올해 Fly Unity의 항공 발권 대리점 승격으로 인해, 안정적인 <strong>발권 볼륨(Volume) 확보</strong>가 최우선 과제가 되었습니다. 기존 B2B 채널만으로는 급변하는 항공 시장의 요구 수량을 맞추기에 한계가 존재할 수 있습니다.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-sm border-l-4 border-cyan-500">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">📍 랜드사의 딜레마: B2C 직접 진출의 리스크</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        수익성을 위해 직판(B2C)이 필요하지만, 이를 위해 별도의 <strong>CS 인력, 마케팅 부서, 웹 시스템</strong>을 구축하는 것은 고비용/고위험 투자입니다. 기존 소매 거래처와의 마찰 또한 우려되는 부분입니다.
+                    </p>
+                </div>
+
+                <div class="bg-blue-50 p-6 rounded-xl text-center mt-auto">
+                    <p class="text-blue-900 font-bold text-lg">
+                        "별도의 투자 없이, 즉각적으로<br>항공+지상비 상품을 판매할 디지털 창구가 필요합니다."
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="h-2 bg-slate-200 w-full mt-auto"></div>
+    </div>
+
+    <!-- Slide 3: 솔루션 (협업 프로세스 수정됨) -->
+    <div class="slide-page bg-white">
+        <div class="p-12 h-full flex flex-col">
+            <div class="flex justify-between items-end mb-10 border-b-2 border-slate-100 pb-4">
+                <h2 class="text-3xl font-bold text-slate-800">Our Solution</h2>
+                <span class="text-slate-400 text-sm">02 / Strategy</span>
+            </div>
+
+            <div class="flex-1">
+                <h3 class="text-2xl font-bold text-center mb-10 text-slate-700">
+                    Fly Unity의 인프라 + 투어메이커의 기술력<br>
+                    <span class="text-blue-600">= 리스크 없는 디지털 직판 모델</span>
+                </h3>
+
+                <div class="grid grid-cols-2 gap-6 mb-8">
+                    <!-- Fly Unity Role -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                        <div class="w-12 h-12 bg-slate-800 text-white rounded-lg flex items-center justify-center text-xl mb-4">
+                            <i class="fas fa-plane-departure"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-800 mb-2">Fly Unity (공급/운영)</h4>
+                        <ul class="space-y-2 text-sm text-slate-600">
+                            <li>• 중국/대만/동남아/일본 현지 행사</li>
+                            <li>• 항공 좌석 확보 및 발권</li>
+                            <li>• 경쟁력 있는 지상비 공급</li>
+                            <li class="font-semibold text-blue-800">• 온라인 고객 상담 지원 (공동 대응)</li> <!-- 추가됨 -->
+                        </ul>
+                    </div>
+
+                    <!-- Tourmaker Role -->
+                    <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100">
+                        <div class="w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center text-xl mb-4">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-blue-900 mb-2">Tourmaker (판매/기술)</h4>
+                        <ul class="space-y-2 text-sm text-blue-800">
+                            <li>• 온라인 판매 플랫폼 제공</li>
+                            <li>• 스마트 가이드북 통한 자동 응대</li>
+                            <li>• 디지털 견적 및 고객 관리 시스템</li>
+                            <li class="font-semibold">• 초기 세팅 및 기술 지원 주도</li> <!-- 수정됨 -->
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 협업 프로세스 다이어그램 수정됨 -->
+                <div class="relative bg-white border-2 border-dashed border-slate-300 rounded-xl p-6 text-center">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-white px-4 text-slate-500 font-bold">실질적 협업 프로세스 (인력 효율화)</div>
+                    <div class="flex justify-around items-center text-sm relative z-10">
+                        <div class="text-center bg-white px-2">
+                            <div class="font-bold mb-1">고객 유입</div>
+                            <div class="text-xs text-slate-500">온라인 채널</div>
+                        </div>
+                        <i class="fas fa-chevron-right text-slate-300 absolute left-1/3 -z-10"></i>
+                        
+                        <!-- 중간 단계 수정: 공동 대응 -->
+                        <div class="text-center bg-blue-50 px-4 py-2 rounded-lg border border-blue-200">
+                            <div class="font-bold mb-1 text-blue-700">
+                                투어메이커 <span class="text-slate-400">+</span> <span class="text-slate-800">Fly Unity</span>
+                            </div>
+                            <div class="text-xs text-slate-600">
+                                디지털 견적/상담/고객관리<br>
+                                <span class="font-bold text-blue-600">(시스템 기반 공동 대응)</span>
+                            </div>
+                        </div>
+                        
+                        <i class="fas fa-chevron-right text-slate-300 absolute right-1/3 -z-10"></i>
+                        <div class="text-center bg-white px-2">
+                            <div class="font-bold mb-1 text-slate-800">Fly Unity</div>
+                            <div class="text-xs text-slate-500">항공발권/최종행사</div>
+                        </div>
+                    </div>
+                    <!-- 연결선 -->
+                     <div class="absolute top-1/2 left-0 w-full h-0.5 bg-slate-100 -z-20 transform -translate-y-1/2"></div>
+                </div>
+            </div>
+        </div>
+        <div class="h-2 bg-blue-600 w-full mt-auto"></div>
+    </div>
+
+    <!-- Slide 4: 핵심 경쟁력 (변경 없음) -->
+    <div class="slide-page bg-pattern">
+        <div class="p-12 h-full flex flex-col">
+            <div class="flex justify-between items-end mb-12 border-b-2 border-slate-100 pb-4">
+                <h2 class="text-3xl font-bold text-slate-800">Core Technology</h2>
+                <span class="text-slate-400 text-sm">03 / Tech Edge</span>
+            </div>
+
+            <div class="grid grid-cols-1 gap-8">
+                <!-- Tech 1 -->
+                <div class="flex items-start space-x-6">
+                    <div class="w-32 h-48 bg-slate-200 rounded-lg shadow-inner flex-shrink-0 overflow-hidden relative group">
+                         <!-- 가상의 스마트 가이드북 이미지 -->
+                         <div class="absolute inset-0 bg-slate-800/10 flex items-center justify-center text-slate-400 text-xs">
+                             Preview Image
+                         </div>
+                         <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=300" class="object-cover w-full h-full opacity-80" alt="Guidebook">
+                    </div>
+                    <div class="flex-1 pt-2">
+                        <h3 class="text-xl font-bold text-blue-700 mb-2">스마트 가이드북 (Smart Guidebook)</h3>
+                        <p class="text-slate-600 text-sm mb-4">
+                            기존의 종이 일정표 대신, URL 하나로 제공되는 모바일 웹 일정표입니다. 고객은 앱 설치 없이 일정 확인, 현지 정보 습득, 추가 옵션 결제까지 가능합니다.
+                        </p>
+                        <ul class="text-sm text-slate-500 space-y-1">
+                            <li>✓ 현지 도착 후 즉시 사용 가능한 정보 제공</li>
+                            <li>✓ 투어메이커의 자동화된 기술로 제작 시간 단축</li>
+                            <li>✓ Fly Unity 상품의 매력을 디지털로 시각화</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Tech 2 -->
+                <div class="flex items-start space-x-6 border-t border-slate-200 pt-8">
+                    <div class="flex-1 pt-2 text-right">
+                        <h3 class="text-xl font-bold text-blue-700 mb-2">온라인 자동 견적 & 모객 시스템</h3>
+                        <p class="text-slate-600 text-sm mb-4">
+                            소매 여행사의 복잡한 상담 과정을 디지털화합니다. 고객이 온라인에서 직접 견적을 요청하면, <strong>양사 담당자가 시스템을 통해 신속하게 공동 대응</strong>합니다.
+                        </p>
+                        <ul class="text-sm text-slate-500 space-y-1">
+                            <li>단순 문의 응대 최소화 (인건비 절감) ✓</li>
+                            <li>24시간 접수 및 데이터 기반 세일즈 ✓</li>
+                            <li>Fly Unity의 항공 좌석 실시간 소진 지원 ✓</li>
+                        </ul>
+                    </div>
+                     <div class="w-32 h-32 bg-slate-100 rounded-full flex items-center justify-center border-4 border-white shadow-lg">
+                        <i class="fas fa-robot text-4xl text-blue-400"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="h-2 bg-slate-200 w-full mt-auto"></div>
+    </div>
+
+    <!-- Slide 5: 기대 효과 (변경 없음) -->
+    <div class="slide-page bg-slate-900 text-white">
+        <div class="p-12 h-full flex flex-col">
+            <div class="flex justify-between items-end mb-12 border-b-2 border-slate-700 pb-4">
+                <h2 class="text-3xl font-bold">Expected Outcome</h2>
+                <span class="text-slate-500 text-sm">04 / Vision</span>
+            </div>
+
+            <div class="grid grid-cols-3 gap-6 mb-12">
+                <div class="bg-slate-800 p-6 rounded-xl text-center">
+                    <div class="text-4xl font-bold text-blue-400 mb-2">Volume</div>
+                    <div class="text-sm text-slate-300">항공 발권량 증대</div>
+                    <p class="text-xs text-slate-500 mt-2">대리점 지위 유지 및<br>항공사 협상력 강화</p>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-xl text-center">
+                    <div class="text-4xl font-bold text-green-400 mb-2">Profit</div>
+                    <div class="text-sm text-slate-300">수익성 개선</div>
+                    <p class="text-xs text-slate-500 mt-2">중간 유통 단계 축소로<br>마진율 확보</p>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-xl text-center">
+                    <div class="text-4xl font-bold text-purple-400 mb-2">Tech</div>
+                    <div class="text-sm text-slate-300">디지털 역량 확보</div>
+                    <p class="text-xs text-slate-500 mt-2">투어메이커 기술 제휴로<br>스마트 여행사 이미지 구축</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700">
+                <h3 class="font-bold text-lg mb-2">💡 제안 요약</h3>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    Fly Unity는 <strong>가장 잘하는 것(상품 기획/수배/발권)</strong>에 집중하십시오.<br>
+                    Tourmaker가 <strong>가장 잘하는 것(디지털 세일즈/가이드북/시스템)</strong>으로 날개를 달아드리겠습니다.<br><br>
+                    지금의 10명 이상의 조직력과 항공 대리점 승격이라는 모멘텀을 투어메이커의 트래블테크와 결합하여, **양사가 함께** 실질적인 매출로 전환할 시점입니다.
+                </p>
+            </div>
+            
+             <!-- 푸터: 투어메이커 홈페이지 링크 박스 (요청사항 반영) -->
+            <div class="mt-auto pt-8 flex justify-center">
+                 <a href="https://tourmaker.kr" target="_blank" class="flex items-center space-x-2 bg-slate-800 hover:bg-slate-700 transition-colors py-2 px-4 rounded-full border border-slate-600">
+                    <span class="text-slate-400 text-xs">Powered by</span>
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHfgIX70O5k6Anuo0UgALIdaG9jSga9auHu3uyz0uEirylGPAJnjN_qQbvEGMUvPqUQf_g9FMNUHRxlDcUBf4vZ3Mpy4TnA9WxbmzWYK11gt2zuy_Irl4wctNFjcjLyPo0GPXV792o_J7L9guRMuDfeC1gy7USwywjYbECZgzcsHybuGRRAXAnO1eNmP8/s320/logo.png" alt="Tourmaker" class="h-5 opacity-80">
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
