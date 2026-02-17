@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fly Unity x Tourmaker 제휴 제안서</title>
     
-    <!-- ✅ 카카오톡/SNS 공유 최적화 (Open Graph) 수정됨 -->
+    <!-- ✅ 카카오톡/SNS 공유 최적화 (Open Graph) -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Fly Unity x Tourmaker 제휴 제안서">
     <meta property="og:description" content="디지털 직판 파이프라인 구축 및 가속화 제안 (항공 발권 볼륨 증대 전략)">
     
-    <!-- 썸네일 이미지 설정: 요청하신 투어메이커 라운드 로고 적용 -->
+    <!-- 썸네일 이미지 설정: 투어메이커 라운드 로고 -->
     <meta property="og:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEi0YSsOZ847rEAjEI5w8uFj7k66WmuO18z2dZuvC5dR80SjnRbjOSrWRmqAP3CrBLPQgWQloK8Ic9n15Kjj879TNlCy8dGxyArnbDnorHB9VhqP-9dqOAb0Dnb0TOf67vZ94O-z_NQ0KUCqv7Ig-SEEWE4yESfTvJXwTgSn5wj03vT048UiCyMyl-hF-6w">
     
     <!-- 트위터 카드 설정 -->
@@ -109,12 +109,31 @@
             position: relative;
         }
         
+        /* 모바일 대응 CSS 수정 */
         @media (max-width: 768px) {
             .page-content {
-                padding: 20px 20px;
+                padding: 20px 15px; /* 좌우 여백을 더 줄임 */
             }
             .controls {
                 bottom: 10px;
+            }
+            /* 모바일에서 제목 마진 축소 */
+            .mobile-tight-header {
+                margin-bottom: 1rem !important; /* mb-4 -> 1rem */
+                padding-bottom: 0.5rem !important;
+            }
+            /* 모바일에서 박스 간격 축소 */
+            .mobile-compact-grid {
+                gap: 0.75rem !important; /* gap-6 -> gap-3 */
+                margin-bottom: 1rem !important;
+            }
+            /* 모바일에서 박스 내부 여백 축소 */
+            .mobile-compact-box {
+                padding: 0.75rem !important; /* p-5 -> p-3 */
+            }
+            /* 폰트 사이즈 미세 조정 */
+            .mobile-text-sm {
+                font-size: 0.75rem !important; /* text-xs보다 약간 작게 */
             }
         }
 
@@ -130,18 +149,18 @@
         }
 
         .logo-img {
-            height: 40px; /* 로고 크기를 키워서 더 잘 보이게 조정 */
+            height: 40px;
             width: auto;
             object-fit: contain;
         }
 
         .page-footer {
             position: absolute;
-            bottom: 20px;
+            bottom: 15px;
             left: 0;
             width: 100%;
             text-align: center;
-            font-size: 12px;
+            font-size: 10px;
             color: #b2bec3;
         }
     </style>
@@ -155,7 +174,7 @@
 
     <div id="book">
         
-        <!-- COVER PAGE: 폰트 크기 축소 및 로고 강조 -->
+        <!-- COVER PAGE -->
         <div class="page">
             <div class="page-content bg-white relative">
                 <div class="absolute top-0 right-0 w-2/3 h-full bg-blue-50/50" style="clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);"></div>
@@ -163,7 +182,6 @@
                 <div class="flex-1 flex flex-col justify-center z-10">
                     <div class="mb-2">
                         <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded-full mb-4">Strategic Alliance</span>
-                        <!-- 글자 크기: text-4xl -> text-2xl로 축소 -->
                         <h1 class="text-2xl font-black text-slate-800 leading-tight mb-4">
                             디지털 직판 파이프라인<br>
                             <span class="gradient-text">구축 및 가속화 제안</span>
@@ -174,9 +192,8 @@
                         </p>
                     </div>
 
-                    <div class="mt-12 pt-8 border-t border-slate-200">
+                    <div class="mt-8 pt-8 border-t border-slate-200">
                         <div class="flex items-center space-x-4">
-                            <!-- 로고: CSS에서 높이 확대 적용됨 -->
                             <img src="https://blogger.googleusercontent.com/img/a/AVvXsEitI-Z-hD82keOJ1AqHw-VTZjpw2U-O5UjtV9h3zblyG0wjsVfBWe9X9o0Q_Spctrt7krkd9qXO0xKTmGJLw4gyMZrRqpshKMFttnyx6OcC8-IGz3XLUZpGQOnRqVdol8jz5HuoDLqsEifnVRhcjUJHm13Sz8JrX9aPswMNUwZPvGtJEnQjhc2PiXlo-B8" alt="Tourmaker" class="logo-img">
                             <span class="text-slate-300">|</span>
                             <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhDlxjbueW0SvPAcv2A63S2A29MmX556P9-k4UAkVbMJ1xFNP_Hh2xcKk_G1JdNRdYoNe23sxVS7Xg7KX-AVvQ9lMg2SlseZ-7hIAP6xnnXEPFIQ5-Vf6udjQ1nj6QvTi-IDe9W-cxvlQfVoZ7lxXvWw5KNDEhdic3Cewf7qMdAzH8u46QTKLmPLRseN5M=s16000" alt="Fly Unity" class="logo-img" style="height: 50px;">
@@ -191,27 +208,27 @@
         <!-- PAGE 1: BACKGROUND -->
         <div class="page">
             <div class="page-content bg-pattern">
-                <div class="flex justify-between items-end mb-10 border-b border-slate-200 pb-3">
+                <div class="flex justify-between items-end mb-10 mobile-tight-header border-b border-slate-200 pb-3">
                     <h2 class="text-xl font-bold text-slate-800">Why Now?</h2>
                     <span class="text-slate-400 text-xs">01 / Background</span>
                 </div>
                 
-                <div class="space-y-8 flex-1">
-                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-blue-600">
+                <div class="space-y-6 flex-1 overflow-y-auto"> <!-- 모바일 스크롤 안전장치 -->
+                    <div class="bg-white p-6 mobile-compact-box rounded-xl shadow-sm border-l-4 border-blue-600">
                         <h3 class="text-base font-bold text-slate-800 mb-2">📍 항공 발권 대리점 승격 이슈</h3>
                         <p class="text-xs text-slate-600 leading-relaxed">
                             Fly Unity의 대리점 승격으로 안정적인 <strong>발권 볼륨(Volume) 확보</strong>가 필수적입니다. 기존 B2B 채널 외에 새로운 파이프라인이 필요합니다.
                         </p>
                     </div>
 
-                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-cyan-500">
+                    <div class="bg-white p-6 mobile-compact-box rounded-xl shadow-sm border-l-4 border-cyan-500">
                         <h3 class="text-base font-bold text-slate-800 mb-2">📍 직접 진출(B2C)의 리스크</h3>
                         <p class="text-xs text-slate-600 leading-relaxed">
                             수익을 위한 직판은 필수이나, CS 인력 채용과 시스템 구축은 고비용/고위험입니다. 리스크 없는 확장 전략이 필요합니다.
                         </p>
                     </div>
 
-                    <div class="bg-blue-50 p-6 rounded-xl text-center mt-auto">
+                    <div class="bg-blue-50 p-6 mobile-compact-box rounded-xl text-center mt-auto">
                         <p class="text-blue-900 font-bold text-sm">
                             "별도의 투자 없이, 즉각적으로 판매할<br>디지털 창구가 필요합니다."
                         </p>
@@ -221,33 +238,34 @@
             </div>
         </div>
 
-        <!-- PAGE 2: STRATEGY -->
+        <!-- PAGE 2: STRATEGY (수정됨: 모바일 레이아웃 최적화) -->
         <div class="page">
              <div class="page-content">
-                <div class="flex justify-between items-end mb-8 border-b border-slate-200 pb-3">
+                <div class="flex justify-between items-end mb-8 mobile-tight-header border-b border-slate-200 pb-3">
                     <h2 class="text-xl font-bold text-slate-800">Strategy</h2>
                     <span class="text-slate-400 text-xs">02 / Solution</span>
                 </div>
 
-                <h3 class="text-lg font-bold text-center mb-8 text-slate-700">
+                <h3 class="text-lg font-bold text-center mb-8 mobile-tight-header text-slate-700">
                     인프라 + 기술력 = <span class="text-blue-600">리스크 없는 직판</span>
                 </h3>
 
-                <div class="grid grid-cols-1 gap-6 mb-8">
-                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 relative overflow-hidden">
+                <!-- 그리드 간격 축소 및 내부 패딩 축소 적용 -->
+                <div class="grid grid-cols-1 gap-6 mobile-compact-grid mb-8">
+                    <div class="bg-slate-50 p-5 mobile-compact-box rounded-xl border border-slate-200 relative overflow-hidden">
                         <div class="absolute right-0 top-0 w-16 h-16 bg-slate-200 rounded-bl-full opacity-50"></div>
                         <h4 class="text-base font-bold text-slate-800 mb-2"><i class="fas fa-plane-departure mr-2"></i>Fly Unity</h4>
-                        <ul class="text-xs text-slate-600 ml-4 list-disc space-y-1">
+                        <ul class="text-xs text-slate-600 ml-4 list-disc space-y-1 mobile-text-sm">
                             <li>중국/대만/동남아/일본 행사 및 항공발권</li>
                             <li class="font-bold text-slate-900">상품 공급 및 운영 총괄</li>
                             <li class="text-blue-700 font-bold">온라인 고객 상담 공동 대응</li>
                         </ul>
                     </div>
 
-                    <div class="bg-blue-50 p-5 rounded-xl border border-blue-100 relative overflow-hidden">
+                    <div class="bg-blue-50 p-5 mobile-compact-box rounded-xl border border-blue-100 relative overflow-hidden">
                          <div class="absolute right-0 top-0 w-16 h-16 bg-blue-200 rounded-bl-full opacity-50"></div>
                         <h4 class="text-base font-bold text-blue-900 mb-2"><i class="fas fa-mobile-alt mr-2"></i>Tourmaker</h4>
-                        <ul class="text-xs text-blue-800 ml-4 list-disc space-y-1">
+                        <ul class="text-xs text-blue-800 ml-4 list-disc space-y-1 mobile-text-sm">
                             <li>스마트 가이드북 기술 제공</li>
                             <li>판매 플랫폼 및 자동 견적 시스템 구축</li>
                             <li class="font-bold">초기 세팅 및 기술 지원 주도</li>
@@ -255,12 +273,13 @@
                     </div>
                 </div>
 
-                <div class="bg-white border border-dashed border-slate-300 rounded-xl p-4 text-center mt-auto">
+                <!-- 협업 프로세스 박스: 마진 top auto로 하단 고정하되, 모바일에서 잘리지 않게 조정 -->
+                <div class="bg-white border border-dashed border-slate-300 rounded-xl p-4 mobile-compact-box text-center mt-auto">
                     <div class="text-[10px] text-slate-500 font-bold mb-3">협업 프로세스</div>
-                    <div class="flex justify-between items-center text-[10px]">
+                    <div class="flex justify-between items-center text-[10px] mobile-text-sm">
                         <div>고객유입</div>
                         <i class="fas fa-chevron-right text-slate-300"></i>
-                        <div class="bg-blue-100 px-3 py-2 rounded-lg text-blue-900 font-bold">공동 대응<br>(시스템)</div>
+                        <div class="bg-blue-100 px-3 py-2 rounded-lg text-blue-900 font-bold whitespace-nowrap">공동 대응<br><span class="text-[9px]">(시스템)</span></div>
                         <i class="fas fa-chevron-right text-slate-300"></i>
                         <div>발권/행사</div>
                     </div>
@@ -272,13 +291,13 @@
          <!-- PAGE 3: TECH EDGE -->
          <div class="page">
             <div class="page-content bg-pattern">
-               <div class="flex justify-between items-end mb-8 border-b border-slate-200 pb-3">
+               <div class="flex justify-between items-end mb-8 mobile-tight-header border-b border-slate-200 pb-3">
                    <h2 class="text-xl font-bold text-slate-800">Tech Edge</h2>
                    <span class="text-slate-400 text-xs">03 / Competitiveness</span>
                </div>
 
-               <div class="space-y-8">
-                   <div class="flex space-x-6">
+               <div class="space-y-8 flex-1">
+                   <div class="flex space-x-6 mobile-compact-grid">
                        <div class="w-24 h-36 bg-slate-200 rounded-lg shadow-md flex-shrink-0 overflow-hidden">
                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=200" class="object-cover w-full h-full opacity-80" alt="Guidebook">
                        </div>
@@ -292,7 +311,7 @@
                    
                    <div class="w-full h-px bg-slate-200"></div>
 
-                   <div class="flex space-x-6">
+                   <div class="flex space-x-6 mobile-compact-grid">
                         <div class="flex-1 text-right">
                             <h3 class="text-base font-bold text-blue-700 mb-2">자동 견적 & 모객 시스템</h3>
                             <p class="text-xs text-slate-600 leading-relaxed">
@@ -311,13 +330,13 @@
        <!-- PAGE 4: OUTCOME -->
        <div class="page">
             <div class="page-content bg-slate-900 text-white">
-                <div class="flex justify-between items-end mb-10 border-b border-slate-700 pb-3">
+                <div class="flex justify-between items-end mb-10 mobile-tight-header border-b border-slate-700 pb-3">
                     <h2 class="text-xl font-bold">Outcome</h2>
                     <span class="text-slate-500 text-xs">04 / Vision</span>
                 </div>
 
-                <div class="space-y-6 mb-10">
-                    <div class="flex items-center justify-between bg-slate-800 p-5 rounded-xl border border-slate-700">
+                <div class="space-y-6 mb-10 mobile-compact-grid flex-1">
+                    <div class="flex items-center justify-between bg-slate-800 p-5 mobile-compact-box rounded-xl border border-slate-700">
                         <div class="text-left">
                             <div class="text-xs text-slate-400 mb-1">Volume</div>
                             <div class="text-base font-bold text-blue-400">항공 발권량 증대</div>
@@ -325,7 +344,7 @@
                         <i class="fas fa-chart-line text-2xl text-slate-600"></i>
                     </div>
                     
-                    <div class="flex items-center justify-between bg-slate-800 p-5 rounded-xl border border-slate-700">
+                    <div class="flex items-center justify-between bg-slate-800 p-5 mobile-compact-box rounded-xl border border-slate-700">
                         <div class="text-left">
                             <div class="text-xs text-slate-400 mb-1">Profit</div>
                             <div class="text-base font-bold text-green-400">직판 마진 확보</div>
@@ -333,7 +352,7 @@
                         <i class="fas fa-coins text-2xl text-slate-600"></i>
                     </div>
 
-                    <div class="flex items-center justify-between bg-slate-800 p-5 rounded-xl border border-slate-700">
+                    <div class="flex items-center justify-between bg-slate-800 p-5 mobile-compact-box rounded-xl border border-slate-700">
                         <div class="text-left">
                             <div class="text-xs text-slate-400 mb-1">Tech</div>
                             <div class="text-base font-bold text-purple-400">디지털 역량 강화</div>
@@ -342,7 +361,7 @@
                     </div>
                 </div>
 
-                <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 mb-auto text-center">
+                <div class="bg-slate-800/50 p-6 mobile-compact-box rounded-xl border border-slate-700 mb-auto text-center">
                     <p class="text-slate-300 text-xs leading-relaxed">
                         Fly Unity는 <strong>가장 잘하는 것</strong>에,<br>
                         Tourmaker도 <strong>가장 잘하는 것</strong>에 집중하여<br>
