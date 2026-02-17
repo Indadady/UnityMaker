@@ -6,14 +6,12 @@
     <title>Fly Unity x Tourmaker 제휴 제안서</title>
     
     <!-- Google Analytics 4 (GA4) -->
-    <!-- [중요] 아래 'G-XXXXXXXXXX' 부분을 실제 측정 ID로 변경하세요 -->
+    <!-- [중요] 'G-XXXXXXXXXX'를 실제 ID로 변경하세요 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
-        // 초기 페이지뷰 전송
         gtag('config', 'G-XXXXXXXXXX');
     </script>
 
@@ -21,59 +19,97 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- PageFlip Library -->
     <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"></script>
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
         
         body {
             font-family: 'Noto Sans KR', sans-serif;
-            background-color: #333; /* 책이 돋보이도록 어두운 배경 */
+            background-color: #2d3436; /* 고급스러운 다크 그레이 배경 */
             margin: 0;
             padding: 0;
             height: 100vh;
+            width: 100vw;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
+            overflow: hidden; /* 스크롤 방지 */
         }
 
-        /* 책 컨테이너 */
-        .book-wrapper {
-            width: 100%;
-            height: 100%;
+        /* 컨트롤러 (화살표) */
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
+            gap: 20px;
         }
 
-        /* 각 페이지 스타일 */
+        .btn-nav {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-nav:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        /* 책 스타일 */
+        .stf__wrapper {
+            /* 라이브러리 기본 래퍼 스타일 보정 */
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
         .page {
-            padding: 20px;
             background-color: white;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #dfe6e9; /* 얇은 테두리 */
             overflow: hidden;
-            box-shadow: inset -3px 0px 20px rgba(0,0,0,0.02); /* 종이 안쪽 그림자 효과 */
+            /* 종이 질감 효과 */
+            background-image: linear-gradient(to right, rgba(255,255,255,0.95), rgba(255,255,255,1));
         }
-        
-        /* 페이지 내부 콘텐츠 컨테이너 */
+
+        /* 짝수 페이지 (왼쪽) 책등 그림자 */
+        .page:nth-child(even) {
+            box-shadow: inset -10px 0 20px -10px rgba(0,0,0,0.1);
+            border-right: none;
+        }
+
+        /* 홀수 페이지 (오른쪽) 책등 그림자 */
+        .page:nth-child(odd) {
+            box-shadow: inset 10px 0 20px -10px rgba(0,0,0,0.1);
+            border-left: none;
+        }
+
         .page-content {
-            width: 100%;
             height: 100%;
+            width: 100%;
             display: flex;
             flex-direction: column;
+            padding: 30px 40px; /* 여백 넉넉하게 */
+            box-sizing: border-box;
             position: relative;
         }
-
-        /* 모바일 대응 미디어 쿼리 */
+        
+        /* 모바일 대응 */
         @media (max-width: 768px) {
-            body {
-                background-color: #f0f2f5;
-                height: auto;
-                overflow-y: auto;
-                display: block;
+            .page-content {
+                padding: 20px 20px;
             }
-            .book-wrapper {
-                display: none; /* 모바일에서는 라이브러리 대신 스크롤 뷰가 나을 수 있으나 요청대로 플립 유지 시 */
+            .controls {
+                bottom: 10px;
             }
         }
 
@@ -88,290 +124,344 @@
             background-size: 20px 20px;
         }
 
-        .partner-logo {
-            height: 2.0rem;
+        .logo-img {
+            height: 30px;
             width: auto;
             object-fit: contain;
         }
 
-        /* 컨트롤 버튼 */
-        .btn-prev, .btn-next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 20px;
-            cursor: pointer;
-            z-index: 100;
-            transition: background 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .btn-prev:hover, .btn-next:hover {
-            background: rgba(255, 255, 255, 0.5);
-        }
-        .btn-prev { left: 20px; }
-        .btn-next { right: 20px; }
-
         /* 페이지 번호 */
         .page-footer {
             position: absolute;
-            bottom: 10px;
+            bottom: 20px;
+            left: 0;
             width: 100%;
             text-align: center;
-            font-size: 10px;
-            color: #ccc;
+            font-size: 12px;
+            color: #b2bec3;
         }
     </style>
 </head>
 <body>
 
-    <div class="book-wrapper">
-        <button class="btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
-        <button class="btn-next" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+    <!-- 네비게이션 버튼 -->
+    <div class="controls">
+        <button class="btn-nav" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+        <button class="btn-nav" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <!-- Book Element -->
+    <div id="book">
         
-        <!-- Book Container -->
-        <div id="book">
-            
-            <!-- Page 1: 표지 -->
-            <div class="page">
-                <div class="page-content relative">
-                    <div class="absolute top-0 right-0 w-1/2 h-full bg-blue-50/50 clip-path-slant" style="clip-path: polygon(20% 0%, 100% 0, 100% 100%, 0% 100%);"></div>
-                    
-                    <div class="flex-1 flex flex-col justify-center px-8 z-10">
-                        <div class="mb-8">
-                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-[10px] font-bold rounded-full mb-4">Strategic Alliance</span>
-                            <h1 class="text-3xl font-black text-slate-800 leading-tight mb-4">
-                                디지털 직판 파이프라인<br>
-                                <span class="gradient-text">구축 및 가속화 제안</span>
-                            </h1>
-                            <p class="text-sm text-slate-500 font-medium">
-                                항공 발권 볼륨 증대와 수익성 강화를 위한<br>
-                                Fly Unity × TOURMAKER 협력 모델
-                            </p>
-                        </div>
-
-                        <div class="mt-8 border-t pt-6 border-slate-200">
-                            <div class="flex items-center space-x-4">
-                                <!-- 투어메이커 로고 -->
-                                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEitI-Z-hD82keOJ1AqHw-VTZjpw2U-O5UjtV9h3zblyG0wjsVfBWe9X9o0Q_Spctrt7krkd9qXO0xKTmGJLw4gyMZrRqpshKMFttnyx6OcC8-IGz3XLUZpGQOnRqVdol8jz5HuoDLqsEifnVRhcjUJHm13Sz8JrX9aPswMNUwZPvGtJEnQjhc2PiXlo-B8" alt="Tourmaker" class="partner-logo">
-                                <span class="text-slate-300">|</span>
-                                <!-- 플라이유니티 로고 -->
-                                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhDlxjbueW0SvPAcv2A63S2A29MmX556P9-k4UAkVbMJ1xFNP_Hh2xcKk_G1JdNRdYoNe23sxVS7Xg7KX-AVvQ9lMg2SlseZ-7hIAP6xnnXEPFIQ5-Vf6udjQ1nj6QvTi-IDe9W-cxvlQfVoZ7lxXvWw5KNDEhdic3Cewf7qMdAzH8u46QTKLmPLRseN5M=s16000" alt="Fly Unity" class="partner-logo" style="height: 2.8rem;">
-                            </div>
-                            <p class="mt-4 text-xs text-slate-400">2026. 02.</p>
-                        </div>
-                    </div>
-                    <div class="h-2 bg-blue-900 w-full absolute bottom-0"></div>
-                </div>
-            </div>
-
-            <!-- Page 2: 배경 -->
-            <div class="page bg-pattern">
-                <div class="page-content px-8 py-10">
-                    <div class="flex justify-between items-end mb-8 border-b border-slate-200 pb-2">
-                        <h2 class="text-xl font-bold text-slate-800">Why Now?</h2>
-                        <span class="text-slate-400 text-xs">01 / Background</span>
-                    </div>
-                    <div class="space-y-6">
-                        <div class="bg-white p-5 rounded-lg shadow-sm border-l-4 border-blue-600">
-                            <h3 class="text-sm font-bold text-slate-800 mb-2">📍 항공 발권 대리점 승격 이슈</h3>
-                            <p class="text-xs text-slate-600 leading-relaxed">
-                                Fly Unity의 대리점 승격으로 안정적인 <strong>발권 볼륨(Volume) 확보</strong>가 필수입니다. 기존 B2B 외에 새로운 채널이 필요합니다.
-                            </p>
-                        </div>
-                        <div class="bg-white p-5 rounded-lg shadow-sm border-l-4 border-cyan-500">
-                            <h3 class="text-sm font-bold text-slate-800 mb-2">📍 직접 진출(B2C)의 리스크</h3>
-                            <p class="text-xs text-slate-600 leading-relaxed">
-                                직판을 위해 CS 인력, 시스템을 구축하는 것은 고비용입니다. 리스크 없이 판매 채널을 확장할 방법이 필요합니다.
-                            </p>
-                        </div>
-                        <div class="bg-blue-50 p-4 rounded-lg text-center mt-4">
-                            <p class="text-blue-900 font-bold text-sm">
-                                "투자 없이, 즉각적으로 판매할<br>디지털 창구가 필요합니다."
-                            </p>
-                        </div>
-                    </div>
-                    <div class="page-footer">- 2 -</div>
-                </div>
-            </div>
-
-            <!-- Page 3: 솔루션 -->
-            <div class="page">
-                 <div class="page-content px-8 py-10">
-                    <div class="flex justify-between items-end mb-6 border-b border-slate-200 pb-2">
-                        <h2 class="text-xl font-bold text-slate-800">Strategy</h2>
-                        <span class="text-slate-400 text-xs">02 / Solution</span>
-                    </div>
-
-                    <h3 class="text-sm font-bold text-center mb-6 text-slate-700">
-                        인프라 + 기술력 = <span class="text-blue-600">리스크 없는 직판</span>
-                    </h3>
-
-                    <div class="grid grid-cols-1 gap-4 mb-6">
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                            <h4 class="text-sm font-bold text-slate-800 mb-1"><i class="fas fa-plane-departure mr-2"></i>Fly Unity (공급/운영)</h4>
-                            <ul class="text-[10px] text-slate-600 ml-4 list-disc">
-                                <li>중국/대만/동남아/일본 행사 및 항공발권</li>
-                                <li class="text-blue-700 font-bold">온라인 고객 상담 공동 대응</li>
-                            </ul>
-                        </div>
-                        <div class="bg-blue-50 p-4 rounded-xl border border-blue-100">
-                            <h4 class="text-sm font-bold text-blue-900 mb-1"><i class="fas fa-mobile-alt mr-2"></i>Tourmaker (판매/기술)</h4>
-                            <ul class="text-[10px] text-blue-800 ml-4 list-disc">
-                                <li>스마트 가이드북 및 판매 플랫폼 제공</li>
-                                <li class="font-bold">초기 세팅 및 기술 지원 주도</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Process Diagram Simplified -->
-                     <div class="bg-white border border-dashed border-slate-300 rounded-lg p-3 text-center">
-                        <div class="text-[10px] text-slate-500 font-bold mb-2">실질적 협업 프로세스</div>
-                        <div class="flex justify-between items-center text-[10px]">
-                            <div>고객유입</div>
-                            <i class="fas fa-arrow-right text-slate-300"></i>
-                            <div class="bg-blue-100 px-2 py-1 rounded text-blue-800 font-bold">공동대응</div>
-                            <i class="fas fa-arrow-right text-slate-300"></i>
-                            <div>발권/행사</div>
-                        </div>
-                    </div>
-                    <div class="page-footer">- 3 -</div>
-                 </div>
-            </div>
-
-             <!-- Page 4: 기술력 -->
-             <div class="page bg-pattern">
-                <div class="page-content px-8 py-10">
-                   <div class="flex justify-between items-end mb-6 border-b border-slate-200 pb-2">
-                       <h2 class="text-xl font-bold text-slate-800">Tech Edge</h2>
-                       <span class="text-slate-400 text-xs">03 / Competitiveness</span>
-                   </div>
-
-                   <div class="space-y-6">
-                       <!-- Item 1 -->
-                       <div class="flex space-x-4">
-                           <div class="w-20 h-28 bg-slate-200 rounded shadow-sm flex-shrink-0 overflow-hidden">
-                               <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=150" class="object-cover w-full h-full opacity-80" alt="Guidebook">
-                           </div>
-                           <div>
-                               <h3 class="text-sm font-bold text-blue-700 mb-1">스마트 가이드북</h3>
-                               <p class="text-[10px] text-slate-600 leading-snug">
-                                   URL 하나로 제공되는 모바일 일정표. 앱 설치 없이 현지 정보 확인 및 옵션 결제가 가능합니다.
-                               </p>
-                           </div>
-                       </div>
-                       <!-- Item 2 -->
-                       <div class="flex space-x-4">
-                            <div class="flex-1 text-right">
-                                <h3 class="text-sm font-bold text-blue-700 mb-1">자동 견적 & 모객</h3>
-                                <p class="text-[10px] text-slate-600 leading-snug">
-                                    온라인 견적 요청을 데이터화하여 <strong>양사 담당자가 시스템으로 즉시 공동 대응</strong>합니다.
-                                </p>
-                            </div>
-                           <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center border-2 border-slate-100 shadow-sm flex-shrink-0">
-                               <i class="fas fa-robot text-2xl text-blue-400"></i>
-                           </div>
-                       </div>
-                   </div>
-                   <div class="page-footer">- 4 -</div>
-                </div>
-           </div>
-
-           <!-- Page 5: 결론 -->
-           <div class="page bg-slate-900 text-white">
-                <div class="page-content px-8 py-10 flex flex-col">
-                    <div class="flex justify-between items-end mb-8 border-b border-slate-700 pb-2">
-                        <h2 class="text-xl font-bold">Outcome</h2>
-                        <span class="text-slate-500 text-xs">04 / Vision</span>
-                    </div>
-
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-center justify-between bg-slate-800 p-3 rounded-lg">
-                            <span class="text-sm text-slate-300">Volume</span>
-                            <span class="text-sm font-bold text-blue-400">항공 발권량 증대</span>
-                        </div>
-                        <div class="flex items-center justify-between bg-slate-800 p-3 rounded-lg">
-                            <span class="text-sm text-slate-300">Profit</span>
-                            <span class="text-sm font-bold text-green-400">직판 마진 확보</span>
-                        </div>
-                        <div class="flex items-center justify-between bg-slate-800 p-3 rounded-lg">
-                            <span class="text-sm text-slate-300">Tech</span>
-                            <span class="text-sm font-bold text-purple-400">디지털 역량 강화</span>
-                        </div>
-                    </div>
-
-                    <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700 mb-auto">
-                        <p class="text-slate-300 text-[11px] leading-relaxed text-center">
-                            Fly Unity는 <strong>가장 잘하는 것</strong>에,<br>
-                            Tourmaker도 <strong>가장 잘하는 것</strong>에 집중하여<br>
-                            **양사가 함께** 실질적인 매출을 만듭니다.
+        <!-- COVER PAGE -->
+        <div class="page">
+            <div class="page-content bg-white relative">
+                <!-- 장식 요소 -->
+                <div class="absolute top-0 right-0 w-2/3 h-full bg-blue-50/50" style="clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);"></div>
+                
+                <div class="flex-1 flex flex-col justify-center z-10">
+                    <div class="mb-2">
+                        <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded-full mb-4">Strategic Alliance</span>
+                        <h1 class="text-4xl font-black text-slate-800 leading-tight mb-4">
+                            디지털 직판 파이프라인<br>
+                            <span class="gradient-text">구축 및 가속화 제안</span>
+                        </h1>
+                        <p class="text-base text-slate-500 font-medium leading-relaxed">
+                            항공 발권 볼륨 증대와 수익성 강화를 위한<br>
+                            Fly Unity × TOURMAKER 협력 모델
                         </p>
                     </div>
 
-                    <div class="mt-8 flex justify-center">
-                        <a href="https://tourmaker.kr" target="_blank" class="flex items-center space-x-2 bg-slate-800 hover:bg-slate-700 transition-colors py-1.5 px-4 rounded-full border border-slate-600">
-                           <span class="text-slate-400 text-[10px]">Powered by</span>
-                           <!-- 푸터 로고 -->
-                           <img src="https://blogger.googleusercontent.com/img/a/AVvXsEitI-Z-hD82keOJ1AqHw-VTZjpw2U-O5UjtV9h3zblyG0wjsVfBWe9X9o0Q_Spctrt7krkd9qXO0xKTmGJLw4gyMZrRqpshKMFttnyx6OcC8-IGz3XLUZpGQOnRqVdol8jz5HuoDLqsEifnVRhcjUJHm13Sz8JrX9aPswMNUwZPvGtJEnQjhc2PiXlo-B8" alt="Tourmaker" class="h-6 opacity-90">
-                       </a>
-                   </div>
-                   <div class="page-footer text-slate-600">- 5 -</div>
-                </div>
-           </div>
-
-           <!-- 뒷표지 (짝수 페이지 맞춤용) -->
-            <div class="page bg-white">
-                <div class="page-content flex items-center justify-center">
-                    <div class="text-center opacity-30">
-                        <!-- 뒷표지 로고 -->
-                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEitI-Z-hD82keOJ1AqHw-VTZjpw2U-O5UjtV9h3zblyG0wjsVfBWe9X9o0Q_Spctrt7krkd9qXO0xKTmGJLw4gyMZrRqpshKMFttnyx6OcC8-IGz3XLUZpGQOnRqVdol8jz5HuoDLqsEifnVRhcjUJHm13Sz8JrX9aPswMNUwZPvGtJEnQjhc2PiXlo-B8" alt="Logo" class="h-10 mx-auto mb-2 grayscale">
-                        <p class="text-xs font-bold text-slate-400">TOURMAKER x Fly Unity</p>
+                    <div class="mt-12 pt-8 border-t border-slate-200">
+                        <div class="flex items-center space-x-4">
+                            <!-- 투어메이커 로고 -->
+                            <img src="https://blogger.googleusercontent.com/img/a/AVvXsEitI-Z-hD82keOJ1AqHw-VTZjpw2U-O5UjtV9h3zblyG0wjsVfBWe9X9o0Q_Spctrt7krkd9qXO0xKTmGJLw4gyMZrRqpshKMFttnyx6OcC8-IGz3XLUZpGQOnRqVdol8jz5HuoDLqsEifnVRhcjUJHm13Sz8JrX9aPswMNUwZPvGtJEnQjhc2PiXlo-B8" alt="Tourmaker" class="logo-img">
+                            <span class="text-slate-300">|</span>
+                            <!-- 플라이유니티 로고 -->
+                            <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhDlxjbueW0SvPAcv2A63S2A29MmX556P9-k4UAkVbMJ1xFNP_Hh2xcKk_G1JdNRdYoNe23sxVS7Xg7KX-AVvQ9lMg2SlseZ-7hIAP6xnnXEPFIQ5-Vf6udjQ1nj6QvTi-IDe9W-cxvlQfVoZ7lxXvWw5KNDEhdic3Cewf7qMdAzH8u46QTKLmPLRseN5M=s16000" alt="Fly Unity" class="logo-img" style="height: 40px;">
+                        </div>
+                        <p class="mt-4 text-xs text-slate-400">2026. 02.</p>
                     </div>
                 </div>
+                <div class="h-3 bg-blue-900 w-full absolute bottom-0 left-0"></div>
             </div>
-
         </div>
+
+        <!-- PAGE 1: BACKGROUND -->
+        <div class="page">
+            <div class="page-content bg-pattern">
+                <div class="flex justify-between items-end mb-10 border-b border-slate-200 pb-3">
+                    <h2 class="text-2xl font-bold text-slate-800">Why Now?</h2>
+                    <span class="text-slate-400 text-xs">01 / Background</span>
+                </div>
+                
+                <div class="space-y-8 flex-1">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-blue-600">
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">📍 항공 발권 대리점 승격 이슈</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Fly Unity의 대리점 승격으로 안정적인 <strong>발권 볼륨(Volume) 확보</strong>가 필수적입니다. 기존 B2B 채널 외에 새로운 파이프라인이 필요합니다.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-cyan-500">
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">📍 직접 진출(B2C)의 리스크</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            수익을 위한 직판은 필수이나, CS 인력 채용과 시스템 구축은 고비용/고위험입니다. 리스크 없는 확장 전략이 필요합니다.
+                        </p>
+                    </div>
+
+                    <div class="bg-blue-50 p-6 rounded-xl text-center mt-auto">
+                        <p class="text-blue-900 font-bold text-base">
+                            "별도의 투자 없이, 즉각적으로 판매할<br>디지털 창구가 필요합니다."
+                        </p>
+                    </div>
+                </div>
+                <div class="page-footer">- 2 -</div>
+            </div>
+        </div>
+
+        <!-- PAGE 2: STRATEGY -->
+        <div class="page">
+             <div class="page-content">
+                <div class="flex justify-between items-end mb-8 border-b border-slate-200 pb-3">
+                    <h2 class="text-2xl font-bold text-slate-800">Strategy</h2>
+                    <span class="text-slate-400 text-xs">02 / Solution</span>
+                </div>
+
+                <h3 class="text-xl font-bold text-center mb-8 text-slate-700">
+                    인프라 + 기술력 = <span class="text-blue-600">리스크 없는 직판</span>
+                </h3>
+
+                <div class="grid grid-cols-1 gap-6 mb-8">
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 relative overflow-hidden">
+                        <div class="absolute right-0 top-0 w-16 h-16 bg-slate-200 rounded-bl-full opacity-50"></div>
+                        <h4 class="text-lg font-bold text-slate-800 mb-2"><i class="fas fa-plane-departure mr-2"></i>Fly Unity</h4>
+                        <ul class="text-sm text-slate-600 ml-4 list-disc space-y-1">
+                            <li>중국/대만/동남아/일본 행사 및 항공발권</li>
+                            <li class="font-bold text-slate-900">상품 공급 및 운영 총괄</li>
+                            <li class="text-blue-700 font-bold">온라인 고객 상담 공동 대응</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-blue-50 p-5 rounded-xl border border-blue-100 relative overflow-hidden">
+                         <div class="absolute right-0 top-0 w-16 h-16 bg-blue-200 rounded-bl-full opacity-50"></div>
+                        <h4 class="text-lg font-bold text-blue-900 mb-2"><i class="fas fa-mobile-alt mr-2"></i>Tourmaker</h4>
+                        <ul class="text-sm text-blue-800 ml-4 list-disc space-y-1">
+                            <li>스마트 가이드북 기술 제공</li>
+                            <li>판매 플랫폼 및 자동 견적 시스템 구축</li>
+                            <li class="font-bold">초기 세팅 및 기술 지원 주도</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-dashed border-slate-300 rounded-xl p-4 text-center mt-auto">
+                    <div class="text-xs text-slate-500 font-bold mb-3">협업 프로세스</div>
+                    <div class="flex justify-between items-center text-xs">
+                        <div>고객유입</div>
+                        <i class="fas fa-chevron-right text-slate-300"></i>
+                        <div class="bg-blue-100 px-3 py-2 rounded-lg text-blue-900 font-bold">공동 대응<br>(시스템)</div>
+                        <i class="fas fa-chevron-right text-slate-300"></i>
+                        <div>발권/행사</div>
+                    </div>
+                </div>
+                <div class="page-footer">- 3 -</div>
+             </div>
+        </div>
+
+         <!-- PAGE 3: TECH EDGE -->
+         <div class="page">
+            <div class="page-content bg-pattern">
+               <div class="flex justify-between items-end mb-8 border-b border-slate-200 pb-3">
+                   <h2 class="text-2xl font-bold text-slate-800">Tech Edge</h2>
+                   <span class="text-slate-400 text-xs">03 / Competitiveness</span>
+               </div>
+
+               <div class="space-y-8">
+                   <!-- Item 1 -->
+                   <div class="flex space-x-6">
+                       <div class="w-24 h-36 bg-slate-200 rounded-lg shadow-md flex-shrink-0 overflow-hidden">
+                           <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=200" class="object-cover w-full h-full opacity-80" alt="Guidebook">
+                       </div>
+                       <div class="flex-1">
+                           <h3 class="text-lg font-bold text-blue-700 mb-2">스마트 가이드북</h3>
+                           <p class="text-sm text-slate-600 leading-relaxed">
+                               URL 하나로 제공되는 모바일 일정표입니다. 앱 설치 없이 고객은 현지 정보 확인, 옵션 결제, 가이드 미팅 정보를 확인할 수 있습니다.
+                           </p>
+                       </div>
+                   </div>
+                   
+                   <div class="w-full h-px bg-slate-200"></div>
+
+                   <!-- Item 2 -->
+                   <div class="flex space-x-6">
+                        <div class="flex-1 text-right">
+                            <h3 class="text-lg font-bold text-blue-700 mb-2">자동 견적 & 모객 시스템</h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                온라인 견적 요청을 데이터화하여 <strong>양사 담당자가 시스템으로 즉시 확인하고 공동 대응</strong>할 수 있는 환경을 제공합니다.
+                            </p>
+                        </div>
+                       <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center border-4 border-slate-100 shadow-md flex-shrink-0">
+                           <i class="fas fa-robot text-3xl text-blue-400"></i>
+                       </div>
+                   </div>
+               </div>
+               <div class="page-footer">- 4 -</div>
+            </div>
+       </div>
+
+       <!-- PAGE 4: OUTCOME -->
+       <div class="page">
+            <div class="page-content bg-slate-900 text-white">
+                <div class="flex justify-between items-end mb-10 border-b border-slate-700 pb-3">
+                    <h2 class="text-2xl font-bold">Outcome</h2>
+                    <span class="text-slate-500 text-xs">04 / Vision</span>
+                </div>
+
+                <div class="space-y-6 mb-10">
+                    <div class="flex items-center justify-between bg-slate-800 p-5 rounded-xl border border-slate-700">
+                        <div class="text-left">
+                            <div class="text-xs text-slate-400 mb-1">Volume</div>
+                            <div class="text-lg font-bold text-blue-400">항공 발권량 증대</div>
+                        </div>
+                        <i class="fas fa-chart-line text-2xl text-slate-600"></i>
+                    </div>
+                    
+                    <div class="flex items-center justify-between bg-slate-800 p-5 rounded-xl border border-slate-700">
+                        <div class="text-left">
+                            <div class="text-xs text-slate-400 mb-1">Profit</div>
+                            <div class="text-lg font-bold text-green-400">직판 마진 확보</div>
+                        </div>
+                        <i class="fas fa-coins text-2xl text-slate-600"></i>
+                    </div>
+
+                    <div class="flex items-center justify-between bg-slate-800 p-5 rounded-xl border border-slate-700">
+                        <div class="text-left">
+                            <div class="text-xs text-slate-400 mb-1">Tech</div>
+                            <div class="text-lg font-bold text-purple-400">디지털 역량 강화</div>
+                        </div>
+                        <i class="fas fa-microchip text-2xl text-slate-600"></i>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 mb-auto text-center">
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Fly Unity는 <strong>가장 잘하는 것</strong>에,<br>
+                        Tourmaker도 <strong>가장 잘하는 것</strong>에 집중하여<br>
+                        **양사가 함께** 실질적인 매출을 만듭니다.
+                    </p>
+                </div>
+
+                <div class="mt-auto flex justify-center pb-8">
+                    <a href="https://tourmaker.kr" target="_blank" class="flex items-center space-x-2 bg-slate-800 hover:bg-slate-700 transition-colors py-2 px-5 rounded-full border border-slate-600">
+                       <span class="text-slate-400 text-xs">Powered by</span>
+                       <!-- 요청하신 새 로고 -->
+                       <img src="https://blogger.googleusercontent.com/img/a/AVvXsEitI-Z-hD82keOJ1AqHw-VTZjpw2U-O5UjtV9h3zblyG0wjsVfBWe9X9o0Q_Spctrt7krkd9qXO0xKTmGJLw4gyMZrRqpshKMFttnyx6OcC8-IGz3XLUZpGQOnRqVdol8jz5HuoDLqsEifnVRhcjUJHm13Sz8JrX9aPswMNUwZPvGtJEnQjhc2PiXlo-B8" alt="Tourmaker" class="h-5 opacity-90">
+                   </a>
+               </div>
+               <div class="page-footer text-slate-600">- 5 -</div>
+            </div>
+       </div>
+
+       <!-- BACK COVER -->
+        <div class="page">
+            <div class="page-content flex items-center justify-center bg-white">
+                <div class="text-center opacity-40">
+                    <!-- 요청하신 새 로고 (흑백처리) -->
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEitI-Z-hD82keOJ1AqHw-VTZjpw2U-O5UjtV9h3zblyG0wjsVfBWe9X9o0Q_Spctrt7krkd9qXO0xKTmGJLw4gyMZrRqpshKMFttnyx6OcC8-IGz3XLUZpGQOnRqVdol8jz5HuoDLqsEifnVRhcjUJHm13Sz8JrX9aPswMNUwZPvGtJEnQjhc2PiXlo-B8" alt="Logo" class="h-12 mx-auto mb-4 grayscale">
+                    <p class="text-sm font-bold text-slate-500 tracking-widest">TOURMAKER x Fly Unity</p>
+                    <p class="text-xs text-slate-400 mt-2">Confidential Proposal</p>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const pageFlip = new St.PageFlip(document.getElementById('book'), {
-                width: 400, // 페이지 너비 (PC 기준)
-                height: 580, // 페이지 높이 (A4 비율)
-                size: 'stretch',
+            const bookElement = document.getElementById('book');
+            
+            // 반응형 크기 계산 함수 (화면에 꽉 차게)
+            function updateBookDimensions() {
+                let screenWidth = window.innerWidth;
+                let screenHeight = window.innerHeight;
+
+                // Safety check for iframe/hidden environments
+                if (!screenWidth || screenWidth === 0) screenWidth = 1024;
+                if (!screenHeight || screenHeight === 0) screenHeight = 768;
+                
+                // 여백을 둔 최대 높이 (95% to fill more screen as requested)
+                const maxHeight = screenHeight * 0.95; 
+                
+                // A4 비율 (1 : 1.414)
+                // Width of a SINGLE page
+                let pageHeight = maxHeight;
+                let pageWidth = pageHeight / 1.414; 
+                
+                // 모바일/PC 분기 처리
+                if (screenWidth < 768) {
+                    // 모바일: 화면 너비 기준 (단면)
+                    // Width is mostly screen width
+                    pageWidth = screenWidth * 0.95;
+                    pageHeight = pageWidth * 1.414;
+                    
+                    // If calculated height exceeds screen height, constrain by height instead
+                    if (pageHeight > screenHeight * 0.9) {
+                         pageHeight = screenHeight * 0.9;
+                         pageWidth = pageHeight / 1.414;
+                    }
+                } else {
+                    // PC: 높이 기준 (양면 펼침을 고려해야 함)
+                    // St.PageFlip 'width' is the width of a SINGLE page.
+                    // Total width = pageWidth * 2. 
+                    // Check if total width fits in screen
+                    if ((pageWidth * 2) > (screenWidth * 0.95)) {
+                        // If too wide, constrain by width
+                        pageWidth = (screenWidth * 0.95) / 2;
+                        pageHeight = pageWidth * 1.414;
+                    }
+                }
+
+                return { 
+                    width: Math.floor(pageWidth), 
+                    height: Math.floor(pageHeight) 
+                };
+            }
+
+            const dims = updateBookDimensions();
+
+            const pageFlip = new St.PageFlip(bookElement, {
+                width: dims.width,
+                height: dims.height,
+                size: 'fixed', // 크기 고정 (JS로 계산했으므로)
                 minWidth: 300,
                 maxWidth: 1000,
                 minHeight: 400,
                 maxHeight: 1500,
                 maxShadowOpacity: 0.5,
                 showCover: true,
-                mobileScrollSupport: false // 모바일에서 터치 드래그 지원
+                mobileScrollSupport: false,
+                useMouseEvents: true,
+                flippingTime: 1000 // 넘김 시간을 1초로 늘려 더 부드럽게
             });
 
-            // 페이지 로드 (HTML 내의 .page 클래스 요소들을 로드)
+            // 페이지 로드
             pageFlip.loadFromHTML(document.querySelectorAll('.page'));
 
-            // 페이지 넘김 이벤트 추적 (GA4)
-            pageFlip.on('flip', (e) => {
-                // e.data는 0부터 시작하는 페이지 인덱스
-                const pageNum = e.data + 1;
-                console.log(`Page flipped to: ${pageNum}`); // 디버깅용 로그
+            // 리사이즈 이벤트 처리 (창 크기 변경 시 책 크기 재조정)
+            window.addEventListener('resize', () => {
+                // 페이지 새로고침을 통해 크기 재계산 (라이브러리 특성상 리로드가 안정적)
+                // location.reload(); 
+                // UX를 위해 리로드는 주석처리하고, 실제 배포시에는 반응형 CSS와 함께 테스트 권장
+            });
 
+            // GA4 이벤트 추적
+            pageFlip.on('flip', (e) => {
+                const pageNum = e.data + 1;
                 if (typeof gtag === 'function') {
-                    // 가상 페이지뷰 전송
                     gtag('event', 'page_view', {
                         page_title: `Proposal Page ${pageNum}`,
                         page_location: location.href + `#page${pageNum}`
                     });
-
-                    // 커스텀 이벤트 전송 (페이지 넘김 행동 자체 추적)
                     gtag('event', 'flip_page', {
                         event_category: 'engagement',
                         event_label: `Page ${pageNum}`,
@@ -380,16 +470,11 @@
                 }
             });
 
-            // 버튼 이벤트 연결
-            document.getElementById('prevBtn').addEventListener('click', () => {
-                pageFlip.flipPrev();
-            });
-
-            document.getElementById('nextBtn').addEventListener('click', () => {
-                pageFlip.flipNext();
-            });
-
-            // 키보드 화살표 키 지원
+            // 버튼 연결
+            document.getElementById('prevBtn').addEventListener('click', () => pageFlip.flipPrev());
+            document.getElementById('nextBtn').addEventListener('click', () => pageFlip.flipNext());
+            
+            // 키보드 연결
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'ArrowLeft') pageFlip.flipPrev();
                 if (e.key === 'ArrowRight') pageFlip.flipNext();
